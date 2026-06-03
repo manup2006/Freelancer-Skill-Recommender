@@ -145,10 +145,4 @@ This project helped in understanding:
 
 ## 👨‍💻 Author
 
-**Manu**
-
-GitHub: https://github.com/manup2006
-
----
-
-## ⭐ If you found this project useful, consider giving it a star!
+**Mannasvee Patil**
