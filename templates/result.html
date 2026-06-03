@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orivo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* ----------------------------
+           Courses Section
+        ---------------------------- */
+        .courses-section {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .courses-section h2 {
+            color: #0056b3;
+            border-bottom: 1px solid #e2e2e2;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .course-card {
+            background-color: #f0f4ff;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #0056b3;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .course-card h3 {
+            margin: 0 0 8px 0;
+            color: #003f7f;
+            font-size: 18px;
+        }
+
+        .course-card ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .course-card a {
+            color: #0056b3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .course-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Matched skills */
+        .skill-match {
+            font-size: 14px;
+            color: #006400;
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .course-card h3 {
+                font-size: 16px;
+            }
+            .course-card a {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/orivo.png') }}" alt="Orivo Logo" class="logo">
+    </div>
+    <span class="slogan">Start small.Grow smart.Evolve endlessly.</span>
+</header>
+
+<div class="container">
+    <h2>Based on your skills: <b>{{ skills }}</b></h2>
+
+    <!-- Projects -->
+    <div class="result-section">
+        <h2>Top Matching Projects</h2>
+        {% for rec in project_results %}
+        <div class="result-row">
+            <span class="name">{{ rec.name }}</span>
+            <span class="match">{{ '%0.2f'|format(rec.score*100) }}% match</span>
+        </div>
+        {% if rec.matched %}
+        <div class="skill-match">Matched skills: {{ rec.matched|join(', ') }}</div>
+        {% endif %}
+        <div class="skill-gap">Missing skills: {{ rec.missing|join(', ') if rec.missing else 'None' }}</div>
+        {% endfor %}
+    </div>
+
+    <!-- Jobs -->
+    <div class="result-section">
+        <h2>Top Matching Jobs</h2>
+        {% for rec in job_results %}
+        <div class="result-row">
+            <span class="name">{{ rec.name }}</span>
+            <span class="match">{{ '%0.2f'|format(rec.score*100) }}% match</span>
+        </div>
+        {% if rec.matched %}
+        <div class="skill-match">Matched skills: {{ rec.matched|join(', ') }}</div>
+        {% endif %}
+        <div class="skill-gap">Missing skills: {{ rec.missing|join(', ') if rec.missing else 'None' }}</div>
+        {% endfor %}
+    </div>
+
+    <!-- Recommended Courses -->
+    {% if courses_with_sources %}
+    <div class="courses-section">
+        <h2>Recommended Courses to Fill Skill Gaps</h2>
+        {% for course, sources in courses_with_sources.items() %}
+        <div class="course-card">
+            <h3>{{ course }}</h3>
+            <ul>
+                {% for src in sources %}
+                <li><a href="{{ src }}" target="_blank">{{ src }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <h4>Keep Going & Keep Growing with Orivo :)</h4>
+    <a href="/">🔁 Try Again</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orivo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header>
+    <div class="left">
+        <img src="{{ url_for('static', filename='images/orivo.png') }}" alt="Orivo Logo" class="logo">
+    </div>
+   <span class="animated-line">Start small.Grow smart.Evolve endlessly.</span>
+</header>
+<div class="container">
+    <div class="about-section" style="background:#fff; padding:20px; border-radius:6px; margin-top:40px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
+        <h2>About Orivo</h2>
+        <p>
+            <b>Orivo</b> is an intelligent skill recommender platform designed to help learners,freelancers and job seekers bridge the gap between their current skills and the ever-evolving demands of the digital world.Guided by the vision <b><i>Start small.Grow smart.Evolve endlessly,</i></b>Orivo uses advanced AI-driven content-based filtering to analyze user-entered skills and recommend the most suitable <b>projects</b>,<b>job roles</b> and <b>upskilling opportunities</b>.
+        </p>
+        <p>
+            Unlike traditional job portals,Orivo also highlights <b>skill gaps</b>,enabling users to
+            understand which specific abilities they need to acquire to become more market-ready.By integrating data analytics,personalized recommendations and a clean,responsive web interface,Orivo empowers individuals to chart a smarter career path and continuously evolve with confidence.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Enter your skills</h2>
+    <p>Type your skills(comma separated)to get tailored project & job recommendations.</p>
+    <form action="/recommend" method="post">
+        <input type="text" name="skills" placeholder="e.g.Python,SQL" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+</div>
+</body>
+</html>

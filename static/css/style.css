@@ -1,0 +1,150 @@
+/* style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    padding:0;
+    background: #f4f6f8;
+    color: #333;
+}
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header img.logo {
+    height: 120px;
+    width: auto;
+}
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #0056b3;
+}
+header span.slogan {
+    font-size: 14px;
+    color: #777;
+}
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+form button {
+    background: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+form button:hover {
+    background: #003f7f;
+}
+.result-section {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.result-section h2 {
+    color: #0056b3;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 8px;
+}
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.result-row .name {
+    font-weight: bold;
+}
+.result-row .match {
+    color: #006400;
+}
+.skill-gap {
+    font-size: 14px;
+    color: #a00;
+}
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+    form button {
+        width: 100%;
+    }
+    .result-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ----------------------------
+   Missing Courses Section
+---------------------------- */
+.courses-section {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.courses-section h2 {
+    color: #0056b3;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.course-card {
+    background-color: #f0f4ff;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #0056b3;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.course-card h3 {
+    margin: 0 0 8px 0;
+    color: #003f7f;
+    font-size: 18px;
+}
+
+.course-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.course-card a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.course-card a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .course-card h3 {
+        font-size: 16px;
+    }
+    .course-card a {
+        font-size: 13px;
+    }
+}
